@@ -14,8 +14,8 @@ object Level4 {
       |totally-real-room-200[decoy]""".stripMargin
 
   def main(args: Array[String]): Unit = {
-    val lines = Source.fromInputStream(getClass.getClassLoader.getResourceAsStream("level4")).getLines.toSeq
-//    val lines = examples.split('\n')
+//    val lines = examples.lines
+    val lines = Source.fromURL(getClass.getResource("level4")).getLines.toSeq
     val sequenceWithValidity = extractValidSequences(lines)
     println(sequenceWithValidity.filter(_._2).map(_._1).sum)
 
